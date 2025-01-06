@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navbar } from '../components/Navbar';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import { PageHeader } from '../components/PageHeader';
+import Downloads from '../components/download/Downloads.astro';
+
+const breadcrumbs = [
+  { label: 'Скачать' }
+];
+---
+
+<Layout title="Скачать - Ghost++">
+  <main class="min-h-screen bg-neutral-50">
+    <Navbar />
+    <Breadcrumbs items={breadcrumbs} />
+    <PageHeader
+      title="Скачать Ghost++"
+      description="Выберите версию Ghost++, которая лучше всего подходит для ваших нужд"
+    />
+    <Downloads />
+  </main>
+</Layout>

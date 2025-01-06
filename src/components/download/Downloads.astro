@@ -1,0 +1,52 @@
+---
+import DownloadCard from './DownloadCard.astro';
+
+const downloads = [
+  {
+    id: 'ghostplusplus',
+    title: 'GHost++',
+    description: 'Оригинальная версия бота, основанная на трудах MrJag, наиболее стабильная версия из всех существующих, но и имеет менее всего возможностей',
+    version: '17.1',
+    link: 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/ghostplusplus/ghostplusplus_17.1.zip',
+  },
+  {
+    id: 'gproxyplusplus',
+    title: 'GProxy++',
+    description: 'Клиент для реализации пере подключения в игре. При игре на боте позволяет пере заходить в игру при разрывах связи',
+    version: '1.0',
+    link: 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/gproxyplusplus/gproxyplusplus_ptr_windows_1.0.zip',
+  },
+  {
+    id: 'brtghost',
+    title: 'brtGHost++',
+    description: 'Видоизмененная версия GHostOne от отечественного производителя',
+    version: '1.7.1',
+    link: 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/brtghost/brtGHost1.7.1.zip',
+  },
+  {
+    id: 'pyghost',
+    title: 'pyGHost++',
+    description: 'Расширенная версия GHost++ с добавленной поддержкой плагин системы на языке программирования Python',
+    version: '0.4',
+    link: 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/pyghost/pyGHost++%20v.%200.4.zip',
+  },
+  {
+    id: 'ghostcb',
+    title: 'GHostCB',
+    description: 'Видоизмененная версия GHost++ со множеством дополнительных функций',
+    version: '17.1 CB 3.6',
+    link: 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/ghostcb/ghost17.1cb3.6.zip',
+  },
+];
+---
+
+<div class="bg-neutral-50 min-h-screen py-12">
+  <div class="container mx-auto px-6">
+    <h1 class="text-4xl font-bold text-primary mb-8">Доступные версии</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {downloads.map((download) => (
+          <DownloadCard id={download.id} title={download.title} description={download.description} version={download.version} link={download.link} />
+      ))}
+    </div>
+  </div>
+</div>

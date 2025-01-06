@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {Navbar} from '../../components/Navbar';
+import {Breadcrumbs} from '../../components/Breadcrumbs';
+import {PageHeader} from '../../components/PageHeader';
+import GuideLayout from '../../components/guide/GuideLayout.astro';
+
+import { getCollection, render } from 'astro:content';
+import type {GetStaticPaths} from "astro";
+import type {CollectionEntry} from "astro:content";
+
+interface Props {
+    entry: CollectionEntry<'user-guide'>;
+}
+
+export const getStaticPaths = (async () => {
+    const posts = await getCollection('user-guide');
+
+    return posts.map((entry) => ({
+        params: {
+            id: entry.id.replace('.md', ''),
+            slug: entry.id.replace('.md', '')
+        },
+        props: {entry}
+    }));
+}) satisfies GetStaticPaths;
+
+// const result = await entry.render();
+// const { Content } = result;
+
+const { Content } = await render(Astro.props.entry);
+
+const breadcrumbs = [
+    {label: 'Руководство', href: '/user-guide'},
+    {label: 'Раздел руководства'}
+];
+---
+
+<Layout title="Руководство - Ghost++">
+    <main class="min-h-screen bg-neutral-50">
+        <Navbar/>
+        <Breadcrumbs items={breadcrumbs}/>
+        <PageHeader
+                title="Руководство пользователя"
+        />
+        <GuideLayout>
+            <div class="page-content max-w-none">
+                <Content/>
+            </div>
+        </GuideLayout>
+    </main>
+</Layout>
