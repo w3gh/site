@@ -1,0 +1,29 @@
+# .github/workflows/astro-check.yml
+name: Astro Check
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  astro-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16" # Укажите нужную версию Node.js
+
+      - name: Deps
+        run: npm install
+
+      - name: Astro Check
+        run: npx astro check
