@@ -1,0 +1,57 @@
+---
+import {Download} from 'lucide-react';
+import {Button} from "../Button";
+
+const {id, title, description, version, link} = Astro.props;
+
+interface Props {
+    id: string;
+    title: string;
+    description: string;
+    version: string;
+    link: string;
+}
+---
+
+<div class:list={[id]} class="download-card h-[300px] flex flex-col bg-neutral-100 p-6 rounded-lg hover:bg-neutral-200 transition-colors">
+    <div class="logo"><h3 class="sr-only">{title}</h3></div>
+    <p class="text-primary-light mb-4">{description}</p>
+    <footer class="mt-auto">
+        <Button href={link} variant="primary" size="md">
+            <Download className="w-4 h-4"/>
+            <span>Скачать</span>
+            <span class="text-sm text-neutral-400"> {version}</span>
+        </Button>
+    </footer>
+</div>
+
+<style>
+    .download-card .logo {
+        display: block;
+        width: 210px;
+        height: 120px;
+        text-align: left;
+
+        background: transparent url(../../images/ghosts.png) 0 0 no-repeat;
+    }
+
+    .download-card.ghostplusplus .logo {
+        background-position: 0 0;
+    }
+
+    .download-card.gproxyplusplus .logo {
+        background-position: 0 -134px;
+    }
+
+    .download-card.pyghost .logo {
+        background-position: 0 -268px;
+    }
+
+    .download-card.ghostcb .logo {
+        background-position: 0 -402px;
+    }
+
+    .download-card.brtghost .logo {
+        background-position: 0 -670px;
+    }
+</style>

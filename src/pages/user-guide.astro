@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {Navbar} from '../components/Navbar';
+import {Breadcrumbs} from '../components/Breadcrumbs';
+import {PageHeader} from '../components/PageHeader';
+import GuideLayout from '../components/guide/GuideLayout.astro';
+import {getEntry, render} from 'astro:content';
+
+const breadcrumbs = [
+    {label: 'Руководство', href: '/user-guide'},
+    {label: 'Раздел руководства'}
+];
+
+const entry = await getEntry('guide', 'index');
+
+console.log({ entry });
+
+if (entry) {
+
+}
+const {Content} = entry ? await render(entry) : { Content: () => null };
+---
+
+<Layout title="Руководство - Ghost++">
+    <main class="min-h-screen bg-neutral-50">
+        <Navbar/>
+        <Breadcrumbs items={breadcrumbs}/>
+        <PageHeader title="Руководство пользователя"/>
+        <GuideLayout>
+            <div class="page-content max-w-none">
+                <Content />
+            </div>
+        </GuideLayout>
+    </main>
+</Layout>

@@ -1,0 +1,36 @@
+---
+import {Download} from 'lucide-react';
+import {Button} from "./Button";
+import bg from '../images/warcraft-iii-remastered.webp';
+---
+
+<div class="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+    <div
+            class="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary-light/20 to-primary/10 opacity-50"/>
+    <div
+            style={{backgroundImage: `url(${bg.src})`}}
+            class="absolute inset-0 bg-cover bg-center opacity-20"/>
+
+    <div class="relative container mx-auto px-6 text-center">
+        <h1 class="text-6xl font-bold text-primary mb-6">
+            Your Gateway to
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">
+            Warcraft III Hosting
+          </span>
+        </h1>
+        <p class="text-xl text-primary-light mb-8 max-w-2xl mx-auto">
+            Мощная система для создания игр в Battle.net и Локальной сети. Позволяет сделать игровой процесс более
+            удобным
+            и приятным.
+        </p>
+        <div class="flex justify-center gap-4">
+            <Button href="/download" variant="primary" size="md">
+                <Download className="w-5 h-5"/>
+                Скачать
+            </Button>
+            <Button href="/user-guide" variant="secondary" size="md">
+                Руководство
+            </Button>
+        </div>
+    </div>
+</div>
