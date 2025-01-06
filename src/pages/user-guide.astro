@@ -13,11 +13,6 @@ const breadcrumbs = [
 
 const entry = await getEntry('guide', 'index');
 
-console.log({ entry });
-
-if (entry) {
-
-}
 const {Content} = entry ? await render(entry) : { Content: () => null };
 ---
 
