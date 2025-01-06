@@ -20,7 +20,7 @@ jobs:
       - name: Node
         uses: actions/setup-node@v2
         with:
-          node-version: "lts/jod" # Укажите нужную версию Node.js
+          node-version: "22.11.0" # Укажите нужную версию Node.js
 
       - name: Deps
         run: npm install
