@@ -6,5 +6,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   integrations: [react(), tailwind()],
-  adapter: cloudflare(),
+  // adapter: cloudflare(),
+  // site: 'https://[ваш-username].github.io',
+  // base: '/[название-репозитория]',
 });

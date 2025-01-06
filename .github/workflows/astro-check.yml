@@ -15,12 +15,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Node
-        uses: actions/setup-node@v2
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: "22.11.0" # Укажите нужную версию Node.js
+          node-version-file: ".nvmrc"
+          cache: "npm"
 
       - name: Deps
         run: npm install
