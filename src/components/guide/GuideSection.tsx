@@ -1,4 +1,3 @@
-import React from 'react';
 import type {GuideSectionItem} from './types';
 
 interface GuideSectionProps {

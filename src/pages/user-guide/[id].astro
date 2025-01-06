@@ -10,11 +10,11 @@ import type {GetStaticPaths} from "astro";
 import type {CollectionEntry} from "astro:content";
 
 interface Props {
-    entry: CollectionEntry<'user-guide'>;
+    entry: CollectionEntry<'guide'>;
 }
 
 export const getStaticPaths = (async () => {
-    const posts = await getCollection('user-guide');
+    const posts = await getCollection('guide');
 
     return posts.map((entry) => ({
         params: {
@@ -24,9 +24,6 @@ export const getStaticPaths = (async () => {
         props: {entry}
     }));
 }) satisfies GetStaticPaths;
-
-// const result = await entry.render();
-// const { Content } = result;
 
 const { Content } = await render(Astro.props.entry);
 

@@ -1,4 +1,4 @@
-import { Feature } from './types';
+import type { Feature } from './types';
 import { FeatureItem } from './FeatureItem';
 
 interface FeatureColumnProps {
